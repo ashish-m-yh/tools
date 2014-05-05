@@ -1,0 +1,14 @@
+<source>
+	<name>SnapDeal</name>
+	<step n="1">
+		<url>http://www.snapdeal.com</url>
+		<match_path>option[pageurl]</match_path>
+		<extract_to_field>city:@pageurl</extract_to_field>
+	</step>
+	<step n="2">
+		<url><![CDATA[ http://www.snapdeal.com/deals-_$city_?systemcode=501&loginSuccess=success ]]></url>
+		<match_path>div[class=content-placeholder]</match_path>
+		<extract_to_field>title:[class=deal-title]</extract_to_field>
+		<extract_to_field>buylink:[class=buylink]:@href</extract_to_field>
+	</step>
+</source>
